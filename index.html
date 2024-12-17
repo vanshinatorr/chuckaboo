@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Love!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom right, #1e1e2f, #2a2a40);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            text-align: center;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            max-width: 400px;
+        }
+        h1 {
+            color: #ffd1dc;
+            text-shadow: 2px 2px 5px #000000;
+            font-size: 1.8rem;
+        }
+        input {
+            font-size: 1rem;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 80%;
+            text-align: center;
+        }
+        .hint {
+            color: #ff9aa2;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #ff6f61;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin-top: 15px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ff3d2e;
+        }
+        #error {
+            color: #ff3d2e;
+            margin-top: 10px;
+            display: none;
+        }
+        .content {
+            display: none;
+        }
+        .message {
+            font-size: 1.1rem;
+            color: #ffddf4;
+            line-height: 1.5;
+            margin-top: 20px;
+        }
+        .surprise {
+            display: none;
+            font-size: 1.5rem;
+            color: #ff6f61;
+            margin-top: 20px;
+            animation: fadeIn 1.5s forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Lock Screen -->
+    <div class="container" id="lockScreen">
+        <h1>Enter Passcode to Unlock ❤️</h1>
+        <p class="hint" id="hint">Hint: You can access the password from Vanshinator or Admin 😉 </p>
+        <input type="password" id="passcode" placeholder="Enter 4-digit passcode" maxlength="4" onfocus="showHint()">
+        <br>
+        <button onclick="unlock()">Unlock</button>
+        <p id="error">Incorrect Passcode 😟</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container content" id="content">
+        <h1>Hey love,</h1>
+        <p class="message">
+            It's your birthday today, and I can’t be there with you because of these exams 😭, but that doesn't mean you don’t have my heart.<br>
+            Sending all my love across the miles just for you!<br><br>
+            Happy Birthday to the most amazing girl I’ve ever met! I loveeeeeee you more than words can say.<br><br>
+            May all your delulu dreams come trululu,<br>
+            And may all our meet-up plans finally turn real soon.<br><br>
+            Birthday wish karna toh bas ek excuse tha 😭,<br>
+            Mujhe toh DSA exam prepare karna tha!<br><br>
+            Is baar website se kaam chala,<br>
+            agli baar, app bhi banayenge 💖<br><br>
+            Lots of love and virtual hugs 🫶🏻🫂<br>
+            Your forever ✨
+        </p>
+        <button onclick="showSurprise()">Click for a Surprise!</button>
+        <p class="surprise" id="surprise">I Love You Forever! 💖</p>
+    </div>
+
+    <script>
+        const correctPasscode = "1712";
+
+        function unlock() {
+            const enteredPasscode = document.getElementById("passcode").value;
+            if (enteredPasscode === correctPasscode) {
+                document.getElementById("lockScreen").style.display = "none";
+                document.getElementById("content").style.display = "block";
+            } else {
+                document.getElementById("error").style.display = "block";
+            }
+        }
+
+        function showHint() {
+            document.getElementById("hint").style.display = "block";
+        }
+
+        function showSurprise() {
+            document.getElementById("surprise").style.display = "block";
+        }
+    </script>
+</body>
+</html>
